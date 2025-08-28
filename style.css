@@ -1,0 +1,25 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#btn {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+    background-color: #EEEFE0;
+  }
+  .container {
+    width: 100%;
+  }
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+}
