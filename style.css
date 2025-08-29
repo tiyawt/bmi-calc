@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: "Permanent Marker", cursive;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -21,17 +24,19 @@ body {
 
 
 .header {
-  width: 30vw;
-  background-color: rgb(233, 198, 151);
+  width: 45vw;
   text-align: center;
+  color: #3F3359;
+  font-size: 24px;
 }
 
 .card {
-  background-color: aquamarine;
-  width: 30vw;
+  background-color: #ffe29d;
+  width: 36vw;
   padding: 20px;
-  border: 1px solid yellow;
+  border: 1px solid #FBC13A;
   border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);;
 }
 
 .field {
@@ -40,8 +45,32 @@ body {
     gap: 10px;
 }
 
+input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #3F3359;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.2s, box-shadow 0.2s;
+  color: #3F3359;
+  font-weight: 600;
+}
+
+input[type="text"]:focus {
+  border-color: #FBC13A;
+  box-shadow: 0 0 5px rgba(248, 99, 61, 0.5);
+  outline: none;
+}
+
 #btn {
-    margin-top: 10px;
+    margin-top: 6px;
+    padding: 12px;
+    background-color: #3F3359;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 #modal-result {
@@ -50,7 +79,7 @@ body {
   justify-content: center;
   flex-direction: column;
   background-color: blueviolet;
-  width: 60vw;
+  width: 45vw;
   height: 65vh;
   position: fixed;    
 	right: 0;    
@@ -73,8 +102,8 @@ body {
 }
 
 .card-result {
-  width: 50vw;
-  height: 50vh;
+  width: 40vw;
+  height: 60vh;
   background-color: aquamarine;
   display: flex;
   flex-direction: column;
@@ -85,8 +114,8 @@ body {
 
 
 .gif {
-  width: 40vw;
-  height: 40vh;
+  width: 30vw;
+  height: 30vh;
   margin: 20px;
 }
 
