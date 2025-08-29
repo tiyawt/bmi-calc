@@ -7,22 +7,28 @@
     <title>FitScale</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Selamat datang di FitScale! 🎯</h1>
         <p>Track perjalanan sehatmu, satu angka BMI pada satu waktu.</p>
     </header>
-    <section>
+    <section id="modal-result">
+        <button id="popup-close" class="btn-close" onclick="closebtn()">X</button>
+        <div id="result" class="card-result">
+    
+        </div>
+    </section>
+    <section class="card">
         <form class="field">
-            <label for="weight">Your Weight</label>
+            <label for="weight">Berat badan kamu (kg)</label>
             <input type="text" id="weight" required>
-            <label for="height">Your Height</label>
+            <p id="error" class="warning"></p>
+            <label for="height">Tinggi badan kamu (cm)</label>
             <input type="text" id="height" required>
+            <p id="error2" class="warning"></p>
             <input type="submit" value="Check" id="btn">
         </form>
     </section>
-    <section>
-        <p id="result"></p>
-    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
