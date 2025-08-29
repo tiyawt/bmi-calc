@@ -11,11 +11,13 @@
         <h1>Selamat datang di FitScale! 🎯</h1>
         <p>Track perjalanan sehatmu, satu angka BMI pada satu waktu.</p>
     </header>
-    <section id="modal-result">
-        <button id="popup-close" onclick="closebtn()">X</button>
-        <div id="result" class="card-result">
-    
-        </div>
+    <section id="modal-result" class="modal">
+        <button id="popup-close" onclick="closebtn('modal-result')">X</button>
+        <div id="result" class="card-result"></div>
+    </section>
+    <section id="error-handling" class="modal">
+        <button id="error-close" onclick="closebtn('error-handling')">X</button>
+        <div id="error-result" class="card-result"></div>
     </section>
     <section class="card">
         <form class="field">

@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   gap: 20px;
   justify-content: center;
-  align-items: centepointerr;
+  align-items: center;
 }
 
 
@@ -36,13 +36,14 @@ body {
   padding: 20px;
   border: 1px solid #FBC13A;
   border-radius: 20px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  ;
 }
 
 .field {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 input[type="text"] {
@@ -63,14 +64,14 @@ input[type="text"]:focus {
 }
 
 #btn {
-    margin-top: 6px;
-    padding: 12px;
-    background-color: #615283;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: bold;
+  margin-top: 6px;
+  padding: 12px;
+  background-color: #615283;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 #btn:hover {
@@ -78,25 +79,26 @@ input[type="text"]:focus {
   background-color: #3F3359;
 }
 
-#modal-result {
+.modal {
   display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 45vw;
   height: 65vh;
-  position: fixed;    
-	right: 0;    
-	left: 0;    
-	top: 0;    
-	bottom: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   z-index: 999;
   border-radius: 20px;
   padding: 20px;
 }
 
-#popup-close {
+#popup-close,
+#error-close {
   background-color: transparent;
   border: none;
   font-size: 24px;
@@ -107,7 +109,8 @@ input[type="text"]:focus {
   cursor: pointer;
 }
 
-#popup-close:hover {
+#popup-close:hover,
+#error-close:hover {
   transform: translateY(5px);
 }
 
@@ -124,13 +127,13 @@ input[type="text"]:focus {
   padding: 20px;
 }
 
-.card-result > p {
+.card-result>p {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #ffffff;
 }
 
-.card-result > p > span {
+.card-result>p>span {
   color: #FBC13A;
 }
 
@@ -138,74 +141,122 @@ input[type="text"]:focus {
   width: 30vw;
   height: 30vh;
   margin: 20px;
+  border-radius: 10px;
 }
 
 .warning {
   color: red;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    width: 60vw;
+    font-size: 16px;
+  }
+
+  .card {
+    width: 50vw;
+  }
+
+  .field {
+    gap: 8px;
+  }
+
+  input[type="text"] {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+
+  #modal-result,
+  #error-handling {
+    padding: 22px;
+    width: 55vw;
+    height: 65vh;
+  }
+
+  #popup-close:hover,
+  #error-close:hover {
+    transform: translateY(5px);
+  }
+
+  .card-result {
+    width: 50vw;
+    height: 40vh;
+    padding: 10px;
+  }
+
+  .card-result>p {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  .card-result>p>span {
+    color: #FBC13A;
+  }
+
+  .gif {
+    width: 40vw;
+    height: 30vh;
+    margin: 10px;
+  }
+}
+
 @media screen and (max-width: 480px) {
 
+  .header {
+    width: 70vw;
+    font-size: 14px;
+  }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .card {
+    width: 85vw;
+  }
 
-.header {
-  width: 70vw;
-  font-size: 14px;
-}
-
-.card {
-  width: 85vw;
-}
-
-.field {
+  .field {
     gap: 5px;
-}
+  }
 
-input[type="text"] {
-  padding: 8px 6px;
-  font-size: 12px;
-}
+  input[type="text"] {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
 
 
-#modal-result {
-  padding: 20px;
-  width: 90vw;
-  height: 60vh;
-}
+  #modal-result,
+  #error-handling {
+    padding: 20px;
+    width: 90vw;
+    height: 60vh;
+  }
 
-#popup-close:hover {
-  transform: translateY(5px);
-}
+  #popup-close:hover,
+  #error-close:hover {
+    transform: translateY(5px);
+  }
 
-.card-result {
-  width: 80vw;
-  height: 50vh;
-  padding: 10px;
-}
+  .card-result {
+    width: 80vw;
+    height: 50vh;
+    padding: 10px;
+  }
 
-.card-result > p {
-  text-align: center;
-  font-size: 14px;
-  color: #ffffff;
-}
+  .card-result>p {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+  }
 
-.card-result > p > span {
-  color: #FBC13A;
-}
+  .card-result>p>span {
+    color: #FBC13A;
+  }
 
-.gif {
-  width: 60vw;
-  height: 50vh;
-  margin: 10px;
-}
+  .gif {
+    width: 60vw;
+    height: 50vh;
+    margin: 10px;
+  }
 
 
 }

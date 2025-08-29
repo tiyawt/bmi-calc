@@ -1,29 +1,31 @@
 const form = document.querySelector('form');
 const btnform = document.getElementById('btn')
 const modalResult = document.getElementById('modal-result')
-const btnclose = document.getElementById('popup-close')
-const resultContent = document.getElementById('result')
 
+
+const resultContent = document.getElementById('result')
+const errorResult = document.getElementById('error-result')
+const errorHandling = document.getElementById('error-handling')
 const weightInput = document.getElementById('weight')
 const heightInput = document.getElementById('height')
 
 let warn = document.getElementById('error')
 let warn2 = document.getElementById('error2')
 
-weightInput.addEventListener('input', ()=>{
+weightInput.addEventListener('input', () => {
     const weight = parseFloat(weightInput.value)
     if (isNaN(weight) || weight < 0) {
         warn.innerText = 'Berat badan harus angka dan lebih dari 0!';
         weightInput.classList.add('warning');
-        
+
     } else {
         warn.innerText = '';
         weightInput.classList.remove('warning');
     }
-    
+
 })
 
-heightInput.addEventListener('input', ()=>{
+heightInput.addEventListener('input', () => {
     const height = parseFloat(heightInput.value)
     if (isNaN(height) || height < 0) {
         warn2.innerText = 'Tinggi badan harus angka dan lebih dari 0!';
@@ -39,43 +41,62 @@ heightInput.addEventListener('input', ()=>{
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const result = weightInput.value/(heightInput.value/100)** 2
+    const result = weightInput.value / (heightInput.value / 100) ** 2
+    console.log(result)
     let resultBMI = 0
     let status = ''
     let message = ''
     let gif = ''
-    if (result <18.5) {
+    22
+    if (result <= 0 || isNaN(result) || !isFinite(result)) {
+        errorHandling.style.display = 'flex'
+        errorResult.innerHTML =
+            `
+            <img class="gif" src='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTlncHB6N2VqNHRoMWdpajd5ZTU4NjZ1OHBmYmdrbzJ6bTNmczg5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l44QvXlVl6wDq46Ck/giphy.gif' alt="meme"/>
+            <p>YAELAH 😤 Udah dibilangin masukin angka dan lebih dari 0 😒</p>
+            `
+        return;
+    }
+
+    if (result < 18.5) {
         status = 'Underweight'
-        resultBMI = result.toFixed(2)
-        message = "Eh, kayak angin lewat nih 😜, jangan lupa makan biar tambah power!"
+        resultBMI = result.toFixed(1)
+        message = "Jangan lupa makan biar tambah power!"
         gif = 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmNuNzRjbmtzdXVkY3U0N3Nva216b2dwbWU5NW5wd2RzdjV3eHByNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/buWJ4V8cHZg88/giphy.gif'
-    } else if (result >=18.5 && result <= 24.9) {
+    } else if (result >= 18.5 && result <= 24.9) {
         status = 'Normal'
-        resultBMI = result.toFixed(2)
+        resultBMI = result.toFixed(1)
         message = "Top markotop! Stabil kayak WiFi full signal 📶. Chill dulu ga siee";
         gif = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW1mYXFvd2ExaWFzdmdmOGw1ZDAzdGpreG0yM2RhczlhbGZwN3p1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iAn1Wh7Fdnh6rKg4Tq/giphy.gif'
     } else if (result >= 25 && result <= 29.9) {
         status = 'Overweight'
-        resultBMI = result.toFixed(2)
+        resultBMI = result.toFixed(1)
         message = 'Hmm… nyaman banget ya di zona snack 😅, ayo gerak dikit biar fit!'
         gif = 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWM1YzQ0Zm1mbXZseWUxM215OHFwdmF2a2s0dzE2YmNtaTkzYmN3eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IH8RsQsOKxyN2/giphy.gif'
     } else {
         status = 'Obesity'
-        resultBMI = result.toFixed(2)
+        resultBMI = result.toFixed(1)
         message = "Waktunya bangun dari sofa 🛋️, biar bisa dance kayak pro! 💃😆"
         gif = 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2NsMGJkN2hoN3A2cnNtbThwdXQ3MTI3dmpqbjJoaXpqemlva3ZreSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/14qb1Uhf40ndw4/giphy.gif'
     }
+    console.log(result)
+
 
     modalResult.style.display = 'flex'
     resultContent.innerHTML = `
-        <p>BMI kamu ${resultBMI} artinya kamu <span>${status}</span></p>
-        <img class="gif" src=${gif} alt="gif"/>
-        <p>${message}</p>
-    `
-    
+            <p>BMI kamu <span>${resultBMI}</span> artinya kamu <span>${status}</span></p>
+            <img class="gif" src=${gif} alt="gif"/>
+            <p>${message}</p>
+        `
+
+
+
+
+
+
 })
 
 
-function closebtn () {
-    modalResult.style.display ='none'
+function closebtn(element) {
+    document.getElementById(element).style.display = 'none'
 }
