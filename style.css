@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   gap: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: centepointerr;
 }
 
 
@@ -65,7 +65,7 @@ input[type="text"]:focus {
 #btn {
     margin-top: 6px;
     padding: 12px;
-    background-color: #3F3359;
+    background-color: #615283;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -73,12 +73,16 @@ input[type="text"]:focus {
     font-weight: bold;
 }
 
+#btn:hover {
+  transform: translateY(8px);
+  background-color: #3F3359;
+}
+
 #modal-result {
   display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: blueviolet;
   width: 45vw;
   height: 65vh;
   position: fixed;    
@@ -88,7 +92,6 @@ input[type="text"]:focus {
 	bottom: 0;
   margin: auto;
   z-index: 999;
-  border: 1px solid teal;
   border-radius: 20px;
   padding: 20px;
 }
@@ -99,12 +102,21 @@ input[type="text"]:focus {
   font-size: 24px;
   padding: 2px;
   align-self: flex-end;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#popup-close:hover {
+  transform: translateY(5px);
 }
 
 .card-result {
   width: 40vw;
   height: 60vh;
-  background-color: aquamarine;
+  background-color: #3F3359;
+  border-radius: 10px;
+  border: 1px solid #FBC13A;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,6 +124,15 @@ input[type="text"]:focus {
   padding: 20px;
 }
 
+.card-result > p {
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.card-result > p > span {
+  color: #FBC13A;
+}
 
 .gif {
   width: 30vw;
@@ -124,16 +145,67 @@ input[type="text"]:focus {
 }
 
 @media screen and (max-width: 480px) {
-  body {
-    font-size: 14px;
-    padding: 10px;
-  }
-  .container {
-    width: 100%;
-  }
-  h1 {
-    font-size: 20px;
-    text-align: center;
-  }
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 70vw;
+  font-size: 14px;
+}
+
+.card {
+  width: 85vw;
+}
+
+.field {
+    gap: 5px;
+}
+
+input[type="text"] {
+  padding: 8px 6px;
+  font-size: 12px;
+}
+
+
+#modal-result {
+  padding: 20px;
+  width: 90vw;
+  height: 60vh;
+}
+
+#popup-close:hover {
+  transform: translateY(5px);
+}
+
+.card-result {
+  width: 80vw;
+  height: 50vh;
+  padding: 10px;
+}
+
+.card-result > p {
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.card-result > p > span {
+  color: #FBC13A;
+}
+
+.gif {
+  width: 60vw;
+  height: 50vh;
+  margin: 10px;
+}
+
 
 }

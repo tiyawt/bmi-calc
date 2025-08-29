@@ -1,4 +1,5 @@
 const form = document.querySelector('form');
+const btnform = document.getElementById('btn')
 const modalResult = document.getElementById('modal-result')
 const btnclose = document.getElementById('popup-close')
 const resultContent = document.getElementById('result')
@@ -11,24 +12,25 @@ let warn2 = document.getElementById('error2')
 
 weightInput.addEventListener('input', ()=>{
     const weight = parseFloat(weightInput.value)
-    if (isNaN(weight)) {
-        warn.innerText = 'Berat badan harus angka!';
-        weight.classList.add('warning');
+    if (isNaN(weight) || weight < 0) {
+        warn.innerText = 'Berat badan harus angka dan lebih dari 0!';
+        weightInput.classList.add('warning');
+        
     } else {
         warn.innerText = '';
-        weight.classList.remove('warning');
+        weightInput.classList.remove('warning');
     }
     
 })
 
 heightInput.addEventListener('input', ()=>{
     const height = parseFloat(heightInput.value)
-    if (isNaN(height)) {
-        warn2.innerText = 'Tinggi badan harus angka!';
-        height.classList.add('warning');
+    if (isNaN(height) || height < 0) {
+        warn2.innerText = 'Tinggi badan harus angka dan lebih dari 0!';
+        heightInput.classList.add('warning');
     } else {
         warn2.innerHTML = '';
-        height.classList.remove('warning')
+        heightInput.classList.remove('warning')
     }
 })
 
@@ -60,16 +62,17 @@ form.addEventListener('submit', (e) => {
     } else {
         status = 'Obesity'
         resultBMI = result.toFixed(2)
-        message = "Waduh, waktunya bangun dari sofa 🛋️, biar bisa dance kayak pro! 💃😆"
+        message = "Waktunya bangun dari sofa 🛋️, biar bisa dance kayak pro! 💃😆"
         gif = 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2NsMGJkN2hoN3A2cnNtbThwdXQ3MTI3dmpqbjJoaXpqemlva3ZreSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/14qb1Uhf40ndw4/giphy.gif'
     }
 
     modalResult.style.display = 'flex'
     resultContent.innerHTML = `
-        <p>BMI kamu ${resultBMI} artinya kamu ${status}</p>
+        <p>BMI kamu ${resultBMI} artinya kamu <span>${status}</span></p>
         <img class="gif" src=${gif} alt="gif"/>
         <p>${message}</p>
     `
+    
 })
 
 
